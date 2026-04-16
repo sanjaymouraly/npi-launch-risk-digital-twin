@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "name": "Serial 5 tasks fixed 5d each => 25d",
+      "tasks": 5,
+      "durations": [5,5,5,5,5],
+      "dependencies": [[0,1],[1,2],[2,3],[3,4]],
+      "expected_makespan": 25,
+      "description": "Pure serial chain, deterministic"
+    },
+    {
+      "name": "Parallel 2 branches 10d each => 10d",
+      "tasks": 3,
+      "durations": [0,10,10],
+      "dependencies": [[0,1],[0,2]],
+      "expected_makespan": 10,
+      "description": "Fork after start, max branch"
+    },
+    {
+      "name": "Single bottleneck resource",
+      "tasks": 3,
+      "durations": [5,5,5],
+      "dependencies": [],
+      "resources": {"capacity":1},
+      "expected_makespan_unconstrained": 5,
+      "expected_makespan_constrained": 15,
+      "description": "3 parallel tasks but 1 resource => sequential"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+name,phase,duration_days,distribution,duration_min,duration_mode,duration_max,cost,is_gate
+Requirements Freeze,Requirements,5,triangular,3,5,7,5000,false
+System Architecture,Design,12,triangular,8,12,18,25000,false
+Schematic Design,Design,10,normal,,, ,18000,false

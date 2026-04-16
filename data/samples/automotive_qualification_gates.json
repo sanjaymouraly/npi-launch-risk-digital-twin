@@ -1,0 +1,566 @@
+{
+  "key": "HELIOS-INV",
+  "name": "Helios EV Traction Inverter",
+  "product": "800V silicon-carbide traction inverter",
+  "description": "Synthetic automotive NPI with IATF/PPAP qualification gates, A-sample through C-sample builds and a vehicle launch commitment.",
+  "version": "1.0",
+  "status": "active",
+  "currency": "USD",
+  "start_date": "2026-02-02",
+  "launch_deadline": "2027-02-04",
+  "baseline_launch_date": "2026-11-20",
+  "working_days_per_week": 5,
+  "holidays": [
+    "2026-04-03",
+    "2026-05-01",
+    "2026-09-07"
+  ],
+  "delay_cost_per_day": 45000,
+  "intervention_budget": 260000,
+  "yield_start": 0.55,
+  "yield_target": 0.97,
+  "ramp_days": 90,
+  "unit_margin": 420,
+  "planned_volume": 22000,
+  "owner": "Helios Vehicle Program",
+  "tags": [
+    "automotive",
+    "powertrain",
+    "qualification"
+  ],
+  "resources": [
+    {
+      "ref": "ENG",
+      "name": "Inverter Engineering",
+      "type": "team",
+      "capacity": 3,
+      "availability": 1.0,
+      "cost_per_day": 2300
+    },
+    {
+      "ref": "DYN",
+      "name": "Powertrain Dyno",
+      "type": "lab",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 4200
+    },
+    {
+      "ref": "EMC",
+      "name": "EMC & Environmental Lab",
+      "type": "lab",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 3100
+    },
+    {
+      "ref": "PLANT",
+      "name": "Pilot Assembly Plant",
+      "type": "line",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 5200
+    }
+  ],
+  "suppliers": [
+    {
+      "ref": "sic",
+      "name": "SiC Semiconductor",
+      "category": "semiconductor",
+      "region": "EU",
+      "reliability": 0.9,
+      "lead_time_days": 70,
+      "lead_time_cv": 0.25,
+      "disruption_prob": 0.12,
+      "disruption_delay_days": 40,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "mag",
+      "name": "Magnetics Asia",
+      "category": "magnetics",
+      "region": "APAC",
+      "reliability": 0.88,
+      "lead_time_days": 45,
+      "lead_time_cv": 0.2,
+      "disruption_prob": 0.08,
+      "disruption_delay_days": 25,
+      "cost_factor": 0.95,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "cast",
+      "name": "CastMetal Works",
+      "category": "casting",
+      "region": "NA",
+      "reliability": 0.92,
+      "lead_time_days": 38,
+      "lead_time_cv": 0.15,
+      "disruption_prob": 0.05,
+      "disruption_delay_days": 20,
+      "cost_factor": 1.05,
+      "qualification_required": false,
+      "qualified": true
+    },
+    {
+      "ref": "siceu",
+      "name": "SiC Europe Alternate",
+      "category": "semiconductor",
+      "region": "EU",
+      "reliability": 0.95,
+      "lead_time_days": 85,
+      "lead_time_cv": 0.12,
+      "disruption_prob": 0.03,
+      "disruption_delay_days": 18,
+      "cost_factor": 1.35,
+      "qualification_required": true,
+      "qualified": true
+    }
+  ],
+  "components": [
+    {
+      "ref": "sicmod",
+      "name": "SiC power module",
+      "part_number": "SIC-800-6P",
+      "supplier": "sic",
+      "alternative_supplier": "siceu",
+      "unit_cost": 310,
+      "qty_per_unit": 1,
+      "lead_time_days": 70,
+      "safety_stock_days": 0,
+      "inventory_days": 3,
+      "criticality": 0.98,
+      "single_source": false
+    },
+    {
+      "ref": "magcomp",
+      "name": "DC-link inductor",
+      "part_number": "MAG-DC-220",
+      "supplier": "mag",
+      "unit_cost": 74,
+      "qty_per_unit": 2,
+      "lead_time_days": 45,
+      "safety_stock_days": 4,
+      "inventory_days": 5,
+      "criticality": 0.8,
+      "single_source": true
+    },
+    {
+      "ref": "housing",
+      "name": "Cast aluminium housing",
+      "part_number": "CAS-INV-01",
+      "supplier": "cast",
+      "unit_cost": 190,
+      "qty_per_unit": 1,
+      "lead_time_days": 38,
+      "safety_stock_days": 3,
+      "inventory_days": 0,
+      "criticality": 0.72,
+      "single_source": true
+    }
+  ],
+  "tasks": [
+    {
+      "ref": "rs",
+      "code": "HEL-01",
+      "name": "Vehicle requirements & interface control",
+      "phase": "Requirements",
+      "duration_days": 12,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 38000,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 16
+    },
+    {
+      "ref": "arch",
+      "code": "HEL-02",
+      "name": "Inverter architecture & functional safety",
+      "phase": "Design",
+      "duration_days": 18,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 62000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 24
+    },
+    {
+      "ref": "hw",
+      "code": "HEL-03",
+      "name": "Power stage & gate driver design",
+      "phase": "Design",
+      "duration_days": 22,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 78000,
+      "distribution": "triangular",
+      "duration_min": 18,
+      "duration_mode": 22,
+      "duration_max": 30
+    },
+    {
+      "ref": "sw",
+      "code": "HEL-04",
+      "name": "Motor control software (ASIL-C)",
+      "phase": "Design",
+      "duration_days": 26,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 92000,
+      "distribution": "triangular",
+      "duration_min": 22,
+      "duration_mode": 26,
+      "duration_max": 34
+    },
+    {
+      "ref": "dfmea",
+      "code": "HEL-05",
+      "name": "DFMEA & design release gate",
+      "phase": "Design",
+      "duration_days": 8,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 24000,
+      "is_gate": true
+    },
+    {
+      "ref": "proc",
+      "code": "HEL-06",
+      "name": "Long-lead SiC & magnetics procurement",
+      "phase": "Procurement",
+      "duration_days": 60,
+      "resources": {
+        "ENG": 0.5
+      },
+      "cost": 26000,
+      "distribution": "triangular",
+      "duration_min": 55,
+      "duration_mode": 60,
+      "duration_max": 85,
+      "materials": [
+        "sicmod",
+        "magcomp"
+      ]
+    },
+    {
+      "ref": "a_sample",
+      "code": "HEL-07",
+      "name": "A-sample build (10 units)",
+      "phase": "Prototyping",
+      "duration_days": 15,
+      "resources": {
+        "PLANT": 1
+      },
+      "cost": 140000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 15,
+      "duration_max": 20
+    },
+    {
+      "ref": "dv",
+      "code": "HEL-08",
+      "name": "DV durability & thermal cycling",
+      "phase": "Validation",
+      "duration_days": 35,
+      "resources": {
+        "DYN": 1,
+        "ENG": 0.5
+      },
+      "cost": 165000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 30,
+      "duration_mode": 35,
+      "duration_max": 48
+    },
+    {
+      "ref": "emc",
+      "code": "HEL-09",
+      "name": "EMC / ESD certification (CISPR 25)",
+      "phase": "Validation",
+      "duration_days": 25,
+      "resources": {
+        "EMC": 1
+      },
+      "cost": 98000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 22,
+      "duration_mode": 25,
+      "duration_max": 34
+    },
+    {
+      "ref": "b_sample",
+      "code": "HEL-10",
+      "name": "B-sample build & PPAP run",
+      "phase": "Pilot Production",
+      "duration_days": 18,
+      "resources": {
+        "PLANT": 1
+      },
+      "cost": 190000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 24,
+      "materials": [
+        "housing"
+      ]
+    },
+    {
+      "ref": "ppap",
+      "code": "HEL-11",
+      "name": "PPAP / IATF 16949 gate",
+      "phase": "Quality",
+      "duration_days": 10,
+      "resources": {
+        "ENG": 1
+      },
+      "cost": 45000,
+      "is_gate": true
+    },
+    {
+      "ref": "sop",
+      "code": "HEL-12",
+      "name": "Start of production",
+      "phase": "Launch",
+      "duration_days": 0,
+      "resources": {
+        "ENG": 0
+      },
+      "cost": 0,
+      "is_milestone": true
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "rs",
+      "to": "arch",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "arch",
+      "to": "hw",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "arch",
+      "to": "sw",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "hw",
+      "to": "dfmea",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "sw",
+      "to": "dfmea",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "dfmea",
+      "to": "proc",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "proc",
+      "to": "a_sample",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "a_sample",
+      "to": "dv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "a_sample",
+      "to": "emc",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "dv",
+      "to": "b_sample",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "emc",
+      "to": "b_sample",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "b_sample",
+      "to": "ppap",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "ppap",
+      "to": "sop",
+      "type": "FS",
+      "lag_days": 0
+    }
+  ],
+  "risks": [
+    {
+      "name": "SiC module allocation shortfall",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "sic",
+      "probability": 0.2,
+      "impact_days": 30,
+      "impact_cost": 380000,
+      "distribution": "lognormal",
+      "correlation_group": "semiconductor",
+      "owner": "Purchasing"
+    },
+    {
+      "name": "DV thermal cycling failure",
+      "category": "quality",
+      "target_type": "task",
+      "target": "dv",
+      "probability": 0.22,
+      "impact_days": 25,
+      "impact_cost": 210000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Validation"
+    },
+    {
+      "name": "CISPR 25 radiated emissions failure",
+      "category": "quality",
+      "target_type": "task",
+      "target": "emc",
+      "probability": 0.28,
+      "impact_days": 20,
+      "impact_cost": 150000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "EMC"
+    },
+    {
+      "name": "ASIL-C software defect",
+      "category": "engineering",
+      "target_type": "task",
+      "target": "sw",
+      "probability": 0.18,
+      "impact_days": 18,
+      "impact_cost": 120000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Software"
+    }
+  ],
+  "validation_tests": [
+    {
+      "task": "dv",
+      "name": "DV durability",
+      "test_type": "DVT",
+      "failure_probability": 0.22,
+      "retest_days": 20,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "emc",
+      "name": "CISPR 25 EMC",
+      "test_type": "qualification",
+      "failure_probability": 0.28,
+      "retest_days": 15,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "ppap",
+      "name": "PPAP approval",
+      "test_type": "qualification",
+      "failure_probability": 0.12,
+      "retest_days": 8,
+      "is_gate": true,
+      "correlation_group": "quality"
+    }
+  ],
+  "ecos": [
+    {
+      "code": "ECO-H1",
+      "title": "Gate driver desaturation tuning",
+      "status": "pending",
+      "probability": 0.3,
+      "rework_days": 10,
+      "impact_tasks": [
+        "hw",
+        "dv"
+      ],
+      "cost": 45000,
+      "description": "Short-circuit protection margin improvement."
+    }
+  ],
+  "milestones": [
+    {
+      "name": "DV exit",
+      "task": "dv",
+      "due_date": "2026-12-31",
+      "customer_commitment": false,
+      "weight": 1.0
+    },
+    {
+      "name": "EMC sign-off",
+      "task": "emc",
+      "due_date": "2026-12-10",
+      "customer_commitment": true,
+      "weight": 1.5
+    },
+    {
+      "name": "PPAP approval",
+      "task": "ppap",
+      "due_date": "2027-01-20",
+      "customer_commitment": true,
+      "weight": 1.5
+    },
+    {
+      "name": "Start of production",
+      "task": "sop",
+      "due_date": "2027-02-04",
+      "customer_commitment": true,
+      "weight": 2.0
+    }
+  ],
+  "quotes": [
+    {
+      "supplier": "siceu",
+      "component": "sicmod",
+      "unit_cost": 418,
+      "lead_time_days": 85,
+      "moq": 500,
+      "qualified": true,
+      "notes": "Qualified alternate SiC module; +35% cost, longer lead time, materially lower allocation risk."
+    }
+  ],
+  "purchase_orders": [],
+  "inventory": [],
+  "actual_events": []
+}

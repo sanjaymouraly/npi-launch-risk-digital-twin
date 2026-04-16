@@ -1,0 +1,42 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I"]
+# B008: FastAPI's `Depends(...)` / `Body(...)` / `File(...)` in argument defaults
+# is the framework's documented pattern, not a mutable-default bug.
+ignore = ["E501", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"backend/tests/*" = ["E402"]
+"scripts/*" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+pythonpath = ["backend"]
+addopts = "-q --tb=short"
+markers = [
+    "slow: long-running benchmarks and large simulations",
+]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+ignore_missing_imports = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.urls]
+Homepage = "https://github.com/sanjaymouraly/npi-launch-risk-digital-twin"
+Repository = "https://github.com/sanjaymouraly/npi-launch-risk-digital-twin"
+Issues = "https://github.com/sanjaymouraly/npi-launch-risk-digital-twin/issues"

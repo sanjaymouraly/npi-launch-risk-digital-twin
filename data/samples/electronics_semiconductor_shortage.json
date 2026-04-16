@@ -1,0 +1,531 @@
+{
+  "key": "VECTOR-5G",
+  "name": "Vector 5G Edge Module",
+  "product": "5G sub-6 GHz edge compute module",
+  "description": "Synthetic electronics NPI exposed to severe semiconductor allocation risk, RF certification and a short customer window.",
+  "version": "1.2",
+  "status": "active",
+  "currency": "USD",
+  "start_date": "2026-03-02",
+  "launch_deadline": "2027-02-12",
+  "baseline_launch_date": "2027-01-15",
+  "working_days_per_week": 5,
+  "holidays": [
+    "2026-04-03",
+    "2026-05-01",
+    "2026-08-15"
+  ],
+  "delay_cost_per_day": 36000,
+  "intervention_budget": 220000,
+  "yield_start": 0.6,
+  "yield_target": 0.95,
+  "ramp_days": 60,
+  "unit_margin": 140,
+  "planned_volume": 80000,
+  "owner": "Vector Product Line",
+  "tags": [
+    "electronics",
+    "5G",
+    "semiconductor",
+    "allocation"
+  ],
+  "resources": [
+    {
+      "ref": "RF",
+      "name": "RF Engineering",
+      "type": "team",
+      "capacity": 2,
+      "availability": 1.0,
+      "cost_per_day": 2200
+    },
+    {
+      "ref": "FW",
+      "name": "Firmware Team",
+      "type": "team",
+      "capacity": 2,
+      "availability": 1.0,
+      "cost_per_day": 1800
+    },
+    {
+      "ref": "CLAB",
+      "name": "RF Conformance Lab",
+      "type": "lab",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 3600
+    },
+    {
+      "ref": "SMT",
+      "name": "SMT Pilot Line",
+      "type": "line",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 2900
+    }
+  ],
+  "suppliers": [
+    {
+      "ref": "rfchip",
+      "name": "RF Front-End Co",
+      "category": "semiconductor",
+      "region": "APAC",
+      "reliability": 0.8,
+      "lead_time_days": 65,
+      "lead_time_cv": 0.3,
+      "disruption_prob": 0.22,
+      "disruption_delay_days": 45,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "basemod",
+      "name": "Baseband Modules Ltd",
+      "category": "semiconductor",
+      "region": "APAC",
+      "reliability": 0.85,
+      "lead_time_days": 50,
+      "lead_time_cv": 0.25,
+      "disruption_prob": 0.16,
+      "disruption_delay_days": 35,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "rfalt",
+      "name": "RF Front-End US",
+      "category": "semiconductor",
+      "region": "NA",
+      "reliability": 0.94,
+      "lead_time_days": 80,
+      "lead_time_cv": 0.12,
+      "disruption_prob": 0.04,
+      "disruption_delay_days": 20,
+      "cost_factor": 1.4,
+      "qualification_required": true,
+      "qualified": true
+    }
+  ],
+  "components": [
+    {
+      "ref": "rf",
+      "name": "5G RF front-end module",
+      "part_number": "RF-5G-N78",
+      "supplier": "rfchip",
+      "alternative_supplier": "rfalt",
+      "unit_cost": 84,
+      "qty_per_unit": 1,
+      "lead_time_days": 65,
+      "safety_stock_days": 0,
+      "inventory_days": 0,
+      "criticality": 0.97,
+      "single_source": false
+    },
+    {
+      "ref": "bb",
+      "name": "Baseband processor",
+      "part_number": "BB-EDGE-7",
+      "supplier": "basemod",
+      "unit_cost": 56,
+      "qty_per_unit": 1,
+      "lead_time_days": 50,
+      "safety_stock_days": 2,
+      "inventory_days": 3,
+      "criticality": 0.9,
+      "single_source": true
+    }
+  ],
+  "tasks": [
+    {
+      "ref": "prd",
+      "code": "VEC-01",
+      "name": "Product requirements & carrier specs",
+      "phase": "Requirements",
+      "duration_days": 8,
+      "resources": {
+        "RF": 1
+      },
+      "cost": 30000
+    },
+    {
+      "ref": "rfdes",
+      "code": "VEC-02",
+      "name": "RF front-end & antenna design",
+      "phase": "Design",
+      "duration_days": 20,
+      "resources": {
+        "RF": 1
+      },
+      "cost": 84000,
+      "distribution": "triangular",
+      "duration_min": 16,
+      "duration_mode": 20,
+      "duration_max": 28
+    },
+    {
+      "ref": "fwdes",
+      "code": "VEC-03",
+      "name": "Embedded firmware & carrier stack",
+      "phase": "Design",
+      "duration_days": 24,
+      "resources": {
+        "FW": 1
+      },
+      "cost": 96000,
+      "distribution": "triangular",
+      "duration_min": 20,
+      "duration_mode": 24,
+      "duration_max": 32
+    },
+    {
+      "ref": "drev",
+      "code": "VEC-04",
+      "name": "Design freeze gate",
+      "phase": "Design",
+      "duration_days": 4,
+      "resources": {
+        "RF": 1
+      },
+      "cost": 12000,
+      "is_gate": true
+    },
+    {
+      "ref": "alloc",
+      "code": "VEC-05",
+      "name": "RF & baseband allocation / procurement",
+      "phase": "Procurement",
+      "duration_days": 55,
+      "resources": {
+        "RF": 0.5
+      },
+      "cost": 24000,
+      "distribution": "triangular",
+      "duration_min": 45,
+      "duration_mode": 55,
+      "duration_max": 90,
+      "materials": [
+        "rf",
+        "bb"
+      ]
+    },
+    {
+      "ref": "smt1",
+      "code": "VEC-06",
+      "name": "EVT SMT build (100 units)",
+      "phase": "Prototyping",
+      "duration_days": 12,
+      "resources": {
+        "SMT": 1
+      },
+      "cost": 88000,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 16,
+      "materials": [
+        "bb"
+      ]
+    },
+    {
+      "ref": "rfv",
+      "code": "VEC-07",
+      "name": "RF conformance & OTA test",
+      "phase": "Validation",
+      "duration_days": 20,
+      "resources": {
+        "CLAB": 1
+      },
+      "cost": 132000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 16,
+      "duration_mode": 20,
+      "duration_max": 28
+    },
+    {
+      "ref": "carrier",
+      "code": "VEC-08",
+      "name": "Carrier certification (GCF/PTCRB)",
+      "phase": "Validation",
+      "duration_days": 30,
+      "resources": {
+        "CLAB": 1
+      },
+      "cost": 165000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 25,
+      "duration_mode": 30,
+      "duration_max": 42
+    },
+    {
+      "ref": "dv",
+      "code": "VEC-09",
+      "name": "DVT thermal & reliability",
+      "phase": "Validation",
+      "duration_days": 18,
+      "resources": {
+        "CLAB": 1
+      },
+      "cost": 76000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 24
+    },
+    {
+      "ref": "pvt",
+      "code": "VEC-10",
+      "name": "PVT build & process validation",
+      "phase": "Pilot Production",
+      "duration_days": 15,
+      "resources": {
+        "SMT": 1
+      },
+      "cost": 120000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 15,
+      "duration_max": 20,
+      "materials": [
+        "rf"
+      ]
+    },
+    {
+      "ref": "ramp",
+      "code": "VEC-11",
+      "name": "Yield ramp & customer acceptance",
+      "phase": "Production Readiness",
+      "duration_days": 10,
+      "resources": {
+        "SMT": 1
+      },
+      "cost": 48000,
+      "is_gate": true
+    },
+    {
+      "ref": "launch",
+      "code": "VEC-12",
+      "name": "Commercial launch",
+      "phase": "Launch",
+      "duration_days": 0,
+      "resources": {
+        "RF": 0
+      },
+      "cost": 0,
+      "is_milestone": true
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "prd",
+      "to": "rfdes",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "prd",
+      "to": "fwdes",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "rfdes",
+      "to": "drev",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "fwdes",
+      "to": "drev",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "drev",
+      "to": "alloc",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "alloc",
+      "to": "smt1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "smt1",
+      "to": "rfv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "rfv",
+      "to": "carrier",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "rfv",
+      "to": "dv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "carrier",
+      "to": "pvt",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "dv",
+      "to": "pvt",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pvt",
+      "to": "ramp",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "ramp",
+      "to": "launch",
+      "type": "FS",
+      "lag_days": 0
+    }
+  ],
+  "risks": [
+    {
+      "name": "RF front-end allocation shortage",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "rfchip",
+      "probability": 0.25,
+      "impact_days": 35,
+      "impact_cost": 260000,
+      "distribution": "lognormal",
+      "correlation_group": "semiconductor",
+      "owner": "Supply Chain"
+    },
+    {
+      "name": "Baseband module allocation",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "basemod",
+      "probability": 0.18,
+      "impact_days": 25,
+      "impact_cost": 160000,
+      "distribution": "lognormal",
+      "correlation_group": "semiconductor",
+      "owner": "Supply Chain"
+    },
+    {
+      "name": "Carrier certification failure",
+      "category": "quality",
+      "target_type": "task",
+      "target": "carrier",
+      "probability": 0.2,
+      "impact_days": 25,
+      "impact_cost": 140000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Certification"
+    },
+    {
+      "name": "RF desense issue",
+      "category": "engineering",
+      "target_type": "task",
+      "target": "rfv",
+      "probability": 0.25,
+      "impact_days": 15,
+      "impact_cost": 90000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "RF Lead"
+    }
+  ],
+  "validation_tests": [
+    {
+      "task": "rfv",
+      "name": "RF conformance",
+      "test_type": "DVT",
+      "failure_probability": 0.25,
+      "retest_days": 12,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "carrier",
+      "name": "GCF / PTCRB certification",
+      "test_type": "qualification",
+      "failure_probability": 0.2,
+      "retest_days": 18,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "dv",
+      "name": "Thermal & reliability",
+      "test_type": "DVT",
+      "failure_probability": 0.15,
+      "retest_days": 10,
+      "is_gate": false,
+      "correlation_group": "engineering"
+    }
+  ],
+  "ecos": [
+    {
+      "code": "ECO-V1",
+      "title": "Antenna matching network revision",
+      "status": "pending",
+      "probability": 0.4,
+      "rework_days": 7,
+      "impact_tasks": [
+        "rfdes",
+        "rfv"
+      ],
+      "cost": 16000,
+      "description": "OTA efficiency improvement."
+    }
+  ],
+  "milestones": [
+    {
+      "name": "RF conformance pass",
+      "task": "rfv",
+      "due_date": "2026-12-31",
+      "customer_commitment": true,
+      "weight": 1.5
+    },
+    {
+      "name": "Carrier certification",
+      "task": "carrier",
+      "due_date": "2027-01-25",
+      "customer_commitment": true,
+      "weight": 1.5
+    },
+    {
+      "name": "Commercial launch",
+      "task": "launch",
+      "due_date": "2027-02-12",
+      "customer_commitment": true,
+      "weight": 2.0
+    }
+  ],
+  "quotes": [
+    {
+      "supplier": "rfalt",
+      "component": "rf",
+      "unit_cost": 118,
+      "lead_time_days": 80,
+      "moq": 1000,
+      "qualified": true,
+      "notes": "Qualified US alternate; +40% cost, +15 days lead time, low allocation risk."
+    }
+  ],
+  "purchase_orders": [],
+  "inventory": [],
+  "actual_events": []
+}

@@ -1,0 +1,24 @@
+{
+  "console_errors": [],
+  "failed_requests": [],
+  "images": [
+    "01-dashboard.png",
+    "02-programs.png",
+    "03-program-overview.png",
+    "04-schedule-capacity.png",
+    "05-risk-attribution.png",
+    "06-supply-exposure.png",
+    "07-milestones.png",
+    "08-monte-carlo.png",
+    "09-scenario-comparison.png",
+    "10-optimiser-recommendation.png",
+    "11-decisions-audit.png",
+    "12-methodology.png",
+    "13-settings-providers.png",
+    "14-helios-program-overview.png",
+    "15-assistant-welcome.png",
+    "16-assistant-grounded-answer.png",
+    "17-settings-ollama-active.png",
+    "18-assistant-ollama-answer.png"
+  ]
+}

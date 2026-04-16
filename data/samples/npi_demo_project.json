@@ -1,0 +1,1100 @@
+{
+  "key": "AURORA-X1",
+  "name": "Aurora X1 Industrial Gateway",
+  "product": "Aurora X1 gateway (cellular + edge compute)",
+  "description": "Synthetic flagship NPI programme covering requirements through SOP for an industrial IoT gateway. Includes long-lead semiconductors, enclosure tooling, EVT/DVT/PVT qualification gates, EMC certification and a customer launch commitment.",
+  "version": "1.0",
+  "status": "active",
+  "currency": "USD",
+  "start_date": "2026-01-05",
+  "launch_deadline": "2026-11-25",
+  "baseline_launch_date": "2026-09-15",
+  "working_days_per_week": 5,
+  "holidays": [
+    "2026-01-26",
+    "2026-04-03",
+    "2026-05-01",
+    "2026-08-15",
+    "2026-10-02"
+  ],
+  "timezone": "Asia/Kolkata",
+  "delay_cost_per_day": 28000,
+  "intervention_budget": 180000,
+  "yield_start": 0.58,
+  "yield_target": 0.96,
+  "ramp_days": 75,
+  "unit_margin": 165,
+  "planned_volume": 48000,
+  "owner": "Aurora Program Office",
+  "tags": [
+    "iot",
+    "electronics",
+    "new-product-introduction",
+    "flagship"
+  ],
+  "resources": [
+    {
+      "ref": "SE",
+      "name": "Systems Engineering",
+      "type": "team",
+      "capacity": 2,
+      "availability": 1.0,
+      "cost_per_day": 1900
+    },
+    {
+      "ref": "HW",
+      "name": "Hardware & Firmware",
+      "type": "team",
+      "capacity": 2,
+      "availability": 1.0,
+      "cost_per_day": 1700
+    },
+    {
+      "ref": "MECH",
+      "name": "Mechanical & Tooling",
+      "type": "team",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 1500
+    },
+    {
+      "ref": "LAB",
+      "name": "Validation Laboratory",
+      "type": "lab",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 2400
+    },
+    {
+      "ref": "LINE",
+      "name": "Pilot Manufacturing Line",
+      "type": "line",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 3400
+    }
+  ],
+  "suppliers": [
+    {
+      "ref": "nordic",
+      "name": "Nordic Silicon",
+      "category": "semiconductor",
+      "region": "EU",
+      "reliability": 0.88,
+      "lead_time_days": 55,
+      "lead_time_cv": 0.22,
+      "disruption_prob": 0.14,
+      "disruption_delay_days": 30,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "renesas",
+      "name": "Renesas EU",
+      "category": "semiconductor",
+      "region": "EU",
+      "reliability": 0.94,
+      "lead_time_days": 68,
+      "lead_time_cv": 0.14,
+      "disruption_prob": 0.035,
+      "disruption_delay_days": 20,
+      "cost_factor": 1.28,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "shenzhen",
+      "name": "Shenzhen Power",
+      "category": "power",
+      "region": "APAC",
+      "reliability": 0.82,
+      "lead_time_days": 42,
+      "lead_time_cv": 0.28,
+      "disruption_prob": 0.17,
+      "disruption_delay_days": 35,
+      "cost_factor": 0.92,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "precision",
+      "name": "Precision Metals",
+      "category": "enclosure",
+      "region": "APAC",
+      "reliability": 0.93,
+      "lead_time_days": 32,
+      "lead_time_cv": 0.12,
+      "disruption_prob": 0.05,
+      "disruption_delay_days": 18,
+      "cost_factor": 1.0,
+      "qualification_required": false,
+      "qualified": true
+    },
+    {
+      "ref": "toolworks",
+      "name": "ToolWorks GmbH",
+      "category": "tooling",
+      "region": "EU",
+      "reliability": 0.9,
+      "lead_time_days": 40,
+      "lead_time_cv": 0.18,
+      "disruption_prob": 0.08,
+      "disruption_delay_days": 25,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "connectpro",
+      "name": "ConnectPro",
+      "category": "interconnect",
+      "region": "APAC",
+      "reliability": 0.95,
+      "lead_time_days": 24,
+      "lead_time_cv": 0.08,
+      "disruption_prob": 0.03,
+      "disruption_delay_days": 10,
+      "cost_factor": 0.97,
+      "qualification_required": false,
+      "qualified": true
+    }
+  ],
+  "components": [
+    {
+      "ref": "mcu",
+      "name": "Edge MCU module",
+      "part_number": "MCU-7A1200",
+      "supplier": "nordic",
+      "alternative_supplier": "renesas",
+      "unit_cost": 38,
+      "qty_per_unit": 1,
+      "lead_time_days": 55,
+      "safety_stock_days": 0,
+      "inventory_days": 5,
+      "criticality": 0.96,
+      "single_source": false
+    },
+    {
+      "ref": "pmic",
+      "name": "Power management IC",
+      "part_number": "PMIC-4410",
+      "supplier": "shenzhen",
+      "unit_cost": 14.5,
+      "qty_per_unit": 2,
+      "lead_time_days": 42,
+      "safety_stock_days": 3,
+      "inventory_days": 2,
+      "criticality": 0.84,
+      "single_source": true
+    },
+    {
+      "ref": "pcb",
+      "name": "12-layer PCB assembly",
+      "part_number": "PCB-AX1-12L",
+      "supplier": "shenzhen",
+      "unit_cost": 62,
+      "qty_per_unit": 1,
+      "lead_time_days": 30,
+      "safety_stock_days": 2,
+      "inventory_days": 4,
+      "criticality": 0.78,
+      "single_source": true
+    },
+    {
+      "ref": "enc",
+      "name": "Die-cast enclosure",
+      "part_number": "ENC-AX1-DC",
+      "supplier": "precision",
+      "unit_cost": 26,
+      "qty_per_unit": 1,
+      "lead_time_days": 32,
+      "safety_stock_days": 2,
+      "inventory_days": 0,
+      "criticality": 0.7,
+      "single_source": false
+    },
+    {
+      "ref": "tool",
+      "name": "Enclosure tooling set",
+      "part_number": "TOOL-AX1-01",
+      "supplier": "toolworks",
+      "unit_cost": 1200,
+      "qty_per_unit": 1,
+      "lead_time_days": 40,
+      "safety_stock_days": 0,
+      "inventory_days": 0,
+      "criticality": 0.82,
+      "single_source": true
+    },
+    {
+      "ref": "conn",
+      "name": "Industrial connector set",
+      "part_number": "CONN-M12-8P",
+      "supplier": "connectpro",
+      "unit_cost": 6.2,
+      "qty_per_unit": 4,
+      "lead_time_days": 24,
+      "safety_stock_days": 2,
+      "inventory_days": 8,
+      "criticality": 0.45,
+      "single_source": false
+    },
+    {
+      "ref": "mem",
+      "name": "LPDDR4 memory",
+      "part_number": "MEM-LP4-2G",
+      "supplier": "shenzhen",
+      "unit_cost": 9.4,
+      "qty_per_unit": 2,
+      "lead_time_days": 35,
+      "safety_stock_days": 0,
+      "inventory_days": 6,
+      "criticality": 0.62,
+      "single_source": false
+    }
+  ],
+  "tasks": [
+    {
+      "ref": "req1",
+      "code": "REQ-01",
+      "name": "Customer & market requirements",
+      "phase": "Requirements",
+      "duration_days": 8,
+      "resources": {
+        "SE": 1
+      },
+      "cost": 24000,
+      "distribution": "triangular",
+      "duration_min": 6,
+      "duration_mode": 8,
+      "duration_max": 12
+    },
+    {
+      "ref": "req2",
+      "code": "REQ-02",
+      "name": "Regulatory & certification requirements",
+      "phase": "Requirements",
+      "duration_days": 6,
+      "resources": {
+        "SE": 1
+      },
+      "cost": 18000
+    },
+    {
+      "ref": "des1",
+      "code": "DES-01",
+      "name": "System architecture & requirements freeze",
+      "phase": "Design",
+      "duration_days": 10,
+      "resources": {
+        "SE": 1,
+        "HW": 0.5
+      },
+      "cost": 36000,
+      "distribution": "triangular",
+      "duration_min": 8,
+      "duration_mode": 10,
+      "duration_max": 14
+    },
+    {
+      "ref": "des2",
+      "code": "DES-02",
+      "name": "Mechanical design & enclosure",
+      "phase": "Design",
+      "duration_days": 16,
+      "resources": {
+        "MECH": 1
+      },
+      "cost": 52000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 16,
+      "duration_max": 24
+    },
+    {
+      "ref": "des3",
+      "code": "DES-03",
+      "name": "Electronics schematic & PCB layout",
+      "phase": "Design",
+      "duration_days": 18,
+      "resources": {
+        "HW": 1
+      },
+      "cost": 68000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 26
+    },
+    {
+      "ref": "des4",
+      "code": "DES-04",
+      "name": "Embedded firmware architecture",
+      "phase": "Design",
+      "duration_days": 14,
+      "resources": {
+        "HW": 1
+      },
+      "cost": 42000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 14,
+      "duration_max": 18
+    },
+    {
+      "ref": "drv",
+      "code": "DES-05",
+      "name": "Design review & release gate",
+      "phase": "Design",
+      "duration_days": 2,
+      "resources": {
+        "SE": 1
+      },
+      "cost": 8000,
+      "is_gate": true,
+      "distribution": "fixed"
+    },
+    {
+      "ref": "bom1",
+      "code": "BOM-01",
+      "name": "BOM release & ERP loading",
+      "phase": "BOM Release",
+      "duration_days": 5,
+      "resources": {
+        "SE": 0.5
+      },
+      "cost": 9000,
+      "distribution": "fixed"
+    },
+    {
+      "ref": "src1",
+      "code": "SRC-01",
+      "name": "Supplier RFQ & selection",
+      "phase": "Sourcing",
+      "duration_days": 10,
+      "resources": {
+        "SE": 0.5
+      },
+      "cost": 14000,
+      "distribution": "triangular",
+      "duration_min": 8,
+      "duration_mode": 10,
+      "duration_max": 14
+    },
+    {
+      "ref": "src2",
+      "code": "SRC-02",
+      "name": "Long-lead component procurement",
+      "phase": "Procurement",
+      "duration_days": 30,
+      "resources": {
+        "SE": 0.5
+      },
+      "cost": 12000,
+      "distribution": "triangular",
+      "duration_min": 26,
+      "duration_mode": 30,
+      "duration_max": 48,
+      "materials": [
+        "mcu",
+        "pmic",
+        "pcb"
+      ]
+    },
+    {
+      "ref": "src3",
+      "code": "SRC-03",
+      "name": "Enclosure tooling purchase order",
+      "phase": "Sourcing",
+      "duration_days": 6,
+      "resources": {
+        "MECH": 0.5
+      },
+      "cost": 7000,
+      "materials": [
+        "tool"
+      ]
+    },
+    {
+      "ref": "pro1",
+      "code": "PRO-01",
+      "name": "Engineering prototype build",
+      "phase": "Prototyping",
+      "duration_days": 10,
+      "resources": {
+        "LINE": 1
+      },
+      "cost": 45000,
+      "distribution": "triangular",
+      "duration_min": 8,
+      "duration_mode": 10,
+      "duration_max": 14,
+      "materials": [
+        "pcb",
+        "conn"
+      ]
+    },
+    {
+      "ref": "evt1",
+      "code": "EVT-01",
+      "name": "EVT functional & environmental test",
+      "phase": "EVT",
+      "duration_days": 12,
+      "resources": {
+        "LAB": 1,
+        "HW": 0.5
+      },
+      "cost": 38000,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 16
+    },
+    {
+      "ref": "evt2",
+      "code": "EVT-02",
+      "name": "Failure analysis & redesign loop",
+      "phase": "EVT",
+      "duration_days": 8,
+      "resources": {
+        "HW": 1
+      },
+      "cost": 26000,
+      "distribution": "triangular",
+      "duration_min": 6,
+      "duration_mode": 8,
+      "duration_max": 14
+    },
+    {
+      "ref": "dvt1",
+      "code": "DVT-01",
+      "name": "DVT reliability & HALT testing",
+      "phase": "DVT",
+      "duration_days": 20,
+      "resources": {
+        "LAB": 1
+      },
+      "cost": 54000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 16,
+      "duration_mode": 20,
+      "duration_max": 30
+    },
+    {
+      "ref": "dvt2",
+      "code": "DVT-02",
+      "name": "EMC & safety certification",
+      "phase": "DVT",
+      "duration_days": 16,
+      "resources": {
+        "LAB": 1
+      },
+      "cost": 48000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 14,
+      "duration_mode": 16,
+      "duration_max": 22
+    },
+    {
+      "ref": "tool1",
+      "code": "TOOL-01",
+      "name": "Tooling fabrication & T0 samples",
+      "phase": "Tooling",
+      "duration_days": 30,
+      "resources": {
+        "MECH": 1
+      },
+      "cost": 85000,
+      "distribution": "triangular",
+      "duration_min": 26,
+      "duration_mode": 30,
+      "duration_max": 42,
+      "materials": [
+        "tool"
+      ]
+    },
+    {
+      "ref": "tool2",
+      "code": "TOOL-02",
+      "name": "Tool trials & dimensional approval",
+      "phase": "Tooling",
+      "duration_days": 8,
+      "resources": {
+        "MECH": 1
+      },
+      "cost": 22000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 6,
+      "duration_mode": 8,
+      "duration_max": 12
+    },
+    {
+      "ref": "pvt1",
+      "code": "PVT-01",
+      "name": "Process validation & line qualification",
+      "phase": "Process Validation",
+      "duration_days": 12,
+      "resources": {
+        "LINE": 1
+      },
+      "cost": 34000,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 16
+    },
+    {
+      "ref": "pvt2",
+      "code": "PVT-02",
+      "name": "Pilot production run (250 units)",
+      "phase": "Pilot Production",
+      "duration_days": 10,
+      "resources": {
+        "LINE": 1
+      },
+      "cost": 62000,
+      "distribution": "triangular",
+      "duration_min": 8,
+      "duration_mode": 10,
+      "duration_max": 14,
+      "materials": [
+        "mcu",
+        "pmic",
+        "enc",
+        "conn"
+      ]
+    },
+    {
+      "ref": "qua1",
+      "code": "QUA-01",
+      "name": "Quality gate & PPAP approval",
+      "phase": "Quality",
+      "duration_days": 6,
+      "resources": {
+        "SE": 0.5
+      },
+      "cost": 16000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 5,
+      "duration_mode": 6,
+      "duration_max": 9
+    },
+    {
+      "ref": "qua2",
+      "code": "QUA-02",
+      "name": "Ramp-up & yield validation",
+      "phase": "Production Readiness",
+      "duration_days": 12,
+      "resources": {
+        "LINE": 1
+      },
+      "cost": 28000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 18
+    },
+    {
+      "ref": "lau1",
+      "code": "LAU-01",
+      "name": "Launch readiness review",
+      "phase": "Launch",
+      "duration_days": 2,
+      "resources": {
+        "SE": 0.5
+      },
+      "cost": 6000,
+      "is_gate": true,
+      "distribution": "fixed"
+    },
+    {
+      "ref": "lau2",
+      "code": "LAU-02",
+      "name": "General availability (SOP)",
+      "phase": "Launch",
+      "duration_days": 0,
+      "resources": {
+        "SE": 0.0
+      },
+      "cost": 0,
+      "is_milestone": true,
+      "distribution": "fixed"
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "req1",
+      "to": "des1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "req2",
+      "to": "des1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "req1",
+      "to": "des4",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "des1",
+      "to": "des2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "des1",
+      "to": "des3",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "des2",
+      "to": "des3",
+      "type": "SS",
+      "lag_days": 3
+    },
+    {
+      "from": "des2",
+      "to": "drv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "des3",
+      "to": "drv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "des4",
+      "to": "drv",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "drv",
+      "to": "bom1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "bom1",
+      "to": "src1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "bom1",
+      "to": "src3",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "src1",
+      "to": "src2",
+      "type": "FS",
+      "lag_days": 2
+    },
+    {
+      "from": "des3",
+      "to": "tool1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "src3",
+      "to": "tool1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "src2",
+      "to": "pro1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "tool1",
+      "to": "tool2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pro1",
+      "to": "evt1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "evt1",
+      "to": "evt2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "evt2",
+      "to": "dvt1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "evt2",
+      "to": "dvt2",
+      "type": "SS",
+      "lag_days": 2
+    },
+    {
+      "from": "dvt1",
+      "to": "pvt2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "dvt2",
+      "to": "pvt2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "tool2",
+      "to": "pvt1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pvt1",
+      "to": "pvt2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pvt2",
+      "to": "qua1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "qua1",
+      "to": "qua2",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "qua2",
+      "to": "lau1",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "lau1",
+      "to": "lau2",
+      "type": "FS",
+      "lag_days": 0
+    }
+  ],
+  "risks": [
+    {
+      "name": "MCU allocation constraint",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "nordic",
+      "probability": 0.18,
+      "impact_days": 25,
+      "impact_cost": 120000,
+      "distribution": "lognormal",
+      "correlation_group": "semiconductor",
+      "owner": "Procurement",
+      "evidence": "Supplier allocation notice Q1-2026; 14% historical disruption rate."
+    },
+    {
+      "name": "Power IC quality excursion",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "shenzhen",
+      "probability": 0.12,
+      "impact_days": 18,
+      "impact_cost": 65000,
+      "distribution": "lognormal",
+      "correlation_group": "semiconductor",
+      "owner": "Supplier Quality"
+    },
+    {
+      "name": "EMC certification failure",
+      "category": "quality",
+      "target_type": "task",
+      "target": "dvt2",
+      "probability": 0.25,
+      "impact_days": 15,
+      "impact_cost": 40000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Hardware Lead"
+    },
+    {
+      "name": "HALT reliability failure",
+      "category": "quality",
+      "target_type": "task",
+      "target": "dvt1",
+      "probability": 0.2,
+      "impact_days": 20,
+      "impact_cost": 52000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Reliability"
+    },
+    {
+      "name": "Firmware defect escape",
+      "category": "engineering",
+      "target_type": "task",
+      "target": "evt2",
+      "probability": 0.22,
+      "impact_days": 12,
+      "impact_cost": 28000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Firmware Lead"
+    },
+    {
+      "name": "Tooling dimensional deviation",
+      "category": "tooling",
+      "target_type": "task",
+      "target": "tool2",
+      "probability": 0.15,
+      "impact_days": 10,
+      "impact_cost": 22000,
+      "distribution": "lognormal",
+      "correlation_group": "tooling",
+      "owner": "Tooling Engineering"
+    },
+    {
+      "name": "Pilot line capacity loss",
+      "category": "capacity",
+      "target_type": "resource",
+      "target": "LINE",
+      "probability": 0.1,
+      "impact_days": 8,
+      "impact_cost": 30000,
+      "distribution": "lognormal",
+      "correlation_group": "operations",
+      "owner": "Operations"
+    },
+    {
+      "name": "Key engineer attrition",
+      "category": "resource",
+      "target_type": "task",
+      "target": "des3",
+      "probability": 0.08,
+      "impact_days": 10,
+      "impact_cost": 18000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Engineering Manager"
+    }
+  ],
+  "validation_tests": [
+    {
+      "task": "evt1",
+      "name": "EVT functional test",
+      "test_type": "EVT",
+      "failure_probability": 0.25,
+      "retest_days": 10,
+      "is_gate": false,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "dvt1",
+      "name": "DVT reliability / HALT",
+      "test_type": "DVT",
+      "failure_probability": 0.2,
+      "retest_days": 15,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "dvt2",
+      "name": "EMC & safety certification",
+      "test_type": "qualification",
+      "failure_probability": 0.25,
+      "retest_days": 12,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "pvt1",
+      "name": "Process validation",
+      "test_type": "PVT",
+      "failure_probability": 0.15,
+      "retest_days": 8,
+      "is_gate": false,
+      "correlation_group": "operations"
+    },
+    {
+      "task": "qua1",
+      "name": "PPAP quality gate",
+      "test_type": "qualification",
+      "failure_probability": 0.1,
+      "retest_days": 5,
+      "is_gate": true,
+      "correlation_group": "quality"
+    }
+  ],
+  "ecos": [
+    {
+      "code": "ECO-001",
+      "title": "Enclosure vent & sealing redesign",
+      "status": "pending",
+      "probability": 0.35,
+      "rework_days": 8,
+      "impact_tasks": [
+        "des2",
+        "tool2"
+      ],
+      "cost": 18000,
+      "description": "IP67 sealing improvement triggered by thermal test findings."
+    },
+    {
+      "code": "ECO-002",
+      "title": "Firmware boot-time optimisation",
+      "status": "approved",
+      "probability": 0.25,
+      "rework_days": 5,
+      "impact_tasks": [
+        "des4",
+        "evt2"
+      ],
+      "cost": 9000,
+      "description": "Customer requirement change for fast-boot."
+    }
+  ],
+  "milestones": [
+    {
+      "name": "EVT exit",
+      "task": "evt2",
+      "due_date": "2026-08-25",
+      "customer_commitment": false,
+      "weight": 1.0
+    },
+    {
+      "name": "DVT exit",
+      "task": "dvt2",
+      "due_date": "2026-10-15",
+      "customer_commitment": false,
+      "weight": 1.0
+    },
+    {
+      "name": "Tooling approval",
+      "task": "tool2",
+      "due_date": "2026-06-10",
+      "customer_commitment": false,
+      "weight": 0.8
+    },
+    {
+      "name": "PVT exit",
+      "task": "qua1",
+      "due_date": "2026-11-20",
+      "customer_commitment": true,
+      "weight": 1.2
+    },
+    {
+      "name": "SOP / customer launch",
+      "task": "lau2",
+      "due_date": "2026-11-25",
+      "customer_commitment": true,
+      "weight": 2.0
+    }
+  ],
+  "quotes": [
+    {
+      "supplier": "renesas",
+      "component": "mcu",
+      "unit_cost": 48.6,
+      "lead_time_days": 68,
+      "moq": 2000,
+      "qualified": true,
+      "notes": "Qualified alternate for MCU; +28% unit cost, +13 days lead time, much lower disruption risk."
+    },
+    {
+      "supplier": "shenzhen",
+      "component": "pmic",
+      "unit_cost": 14.5,
+      "lead_time_days": 42,
+      "moq": 5000,
+      "qualified": true
+    },
+    {
+      "supplier": "precision",
+      "component": "enc",
+      "unit_cost": 26,
+      "lead_time_days": 32,
+      "moq": 500,
+      "qualified": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "component": "conn",
+      "supplier": "connectpro",
+      "quantity": 4000,
+      "unit_cost": 6.1,
+      "ordered_offset": 0,
+      "expected_offset": 22,
+      "status": "open",
+      "expedite_cost": 0
+    },
+    {
+      "component": "pcb",
+      "supplier": "shenzhen",
+      "quantity": 500,
+      "unit_cost": 62,
+      "ordered_offset": 10,
+      "expected_offset": 38,
+      "status": "open",
+      "expedite_cost": 0
+    }
+  ],
+  "inventory": [
+    {
+      "component": "conn",
+      "on_hand_qty": 1200,
+      "safety_stock_qty": 300,
+      "location": "DC-Pune"
+    },
+    {
+      "component": "mem",
+      "on_hand_qty": 800,
+      "safety_stock_qty": 200,
+      "location": "DC-Pune"
+    }
+  ],
+  "actual_events": [
+    {
+      "task": "evt1",
+      "event_type": "actual",
+      "observed_delay_days": 3,
+      "observed_cost": 8400,
+      "occurred_on": "2026-04-14",
+      "evidence": "EVT bench availability slipped 3 days (internal lab log).",
+      "source": "PLM"
+    },
+    {
+      "supplier": "nordic",
+      "event_type": "delay",
+      "observed_delay_days": 6,
+      "observed_cost": 12000,
+      "occurred_on": "2026-03-02",
+      "evidence": "Allocation notice led to 6-day expedite (ERP PO-8821).",
+      "source": "ERP"
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "key": "TITAN-PUMP",
+  "name": "Titan H7 Industrial Pump",
+  "product": "H7 high-pressure process pump",
+  "description": "Synthetic industrial equipment NPI constrained by castings tooling, machining capacity and a fixed customer acceptance window.",
+  "version": "1.0",
+  "status": "active",
+  "currency": "USD",
+  "start_date": "2026-01-19",
+  "launch_deadline": "2026-10-28",
+  "baseline_launch_date": "2026-10-09",
+  "working_days_per_week": 5,
+  "holidays": [
+    "2026-01-26",
+    "2026-04-03",
+    "2026-05-01",
+    "2026-08-15"
+  ],
+  "delay_cost_per_day": 18000,
+  "intervention_budget": 140000,
+  "yield_start": 0.7,
+  "yield_target": 0.97,
+  "ramp_days": 45,
+  "unit_margin": 950,
+  "planned_volume": 3500,
+  "owner": "Titan Industrial",
+  "tags": [
+    "industrial",
+    "tooling",
+    "capacity"
+  ],
+  "resources": [
+    {
+      "ref": "DES",
+      "name": "Design Engineering",
+      "type": "team",
+      "capacity": 2,
+      "availability": 1.0,
+      "cost_per_day": 1600
+    },
+    {
+      "ref": "MACH",
+      "name": "CNC Machining Cell",
+      "type": "machine",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 2800
+    },
+    {
+      "ref": "FOUNDRY",
+      "name": "Foundry & Tooling",
+      "type": "machine",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 3200
+    },
+    {
+      "ref": "TEST",
+      "name": "Hydraulic Test Bench",
+      "type": "lab",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 2100
+    },
+    {
+      "ref": "ASM",
+      "name": "Assembly Line",
+      "type": "line",
+      "capacity": 1,
+      "availability": 1.0,
+      "cost_per_day": 2400
+    }
+  ],
+  "suppliers": [
+    {
+      "ref": "castings",
+      "name": "Midwest Castings",
+      "category": "casting",
+      "region": "NA",
+      "reliability": 0.88,
+      "lead_time_days": 48,
+      "lead_time_cv": 0.2,
+      "disruption_prob": 0.1,
+      "disruption_delay_days": 30,
+      "cost_factor": 1.0,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "seals",
+      "name": "SealTech",
+      "category": "seals",
+      "region": "EU",
+      "reliability": 0.94,
+      "lead_time_days": 30,
+      "lead_time_cv": 0.1,
+      "disruption_prob": 0.04,
+      "disruption_delay_days": 12,
+      "cost_factor": 1.0,
+      "qualification_required": false,
+      "qualified": true
+    },
+    {
+      "ref": "motors",
+      "name": "DriveMotor Co",
+      "category": "motor",
+      "region": "APAC",
+      "reliability": 0.9,
+      "lead_time_days": 40,
+      "lead_time_cv": 0.15,
+      "disruption_prob": 0.06,
+      "disruption_delay_days": 20,
+      "cost_factor": 0.98,
+      "qualification_required": true,
+      "qualified": true
+    },
+    {
+      "ref": "castings2",
+      "name": "Castings Alternative",
+      "category": "casting",
+      "region": "EU",
+      "reliability": 0.93,
+      "lead_time_days": 60,
+      "lead_time_cv": 0.12,
+      "disruption_prob": 0.03,
+      "disruption_delay_days": 15,
+      "cost_factor": 1.2,
+      "qualification_required": true,
+      "qualified": true
+    }
+  ],
+  "components": [
+    {
+      "ref": "body",
+      "name": "Cast pump body",
+      "part_number": "CST-H7-BODY",
+      "supplier": "castings",
+      "alternative_supplier": "castings2",
+      "unit_cost": 420,
+      "qty_per_unit": 1,
+      "lead_time_days": 48,
+      "safety_stock_days": 2,
+      "inventory_days": 0,
+      "criticality": 0.9,
+      "single_source": false
+    },
+    {
+      "ref": "seal",
+      "name": "Mechanical seal cartridge",
+      "part_number": "SL-H7-CART",
+      "supplier": "seals",
+      "unit_cost": 96,
+      "qty_per_unit": 1,
+      "lead_time_days": 30,
+      "safety_stock_days": 4,
+      "inventory_days": 6,
+      "criticality": 0.65,
+      "single_source": true
+    },
+    {
+      "ref": "motor",
+      "name": "IE5 drive motor",
+      "part_number": "MTR-IE5-75",
+      "supplier": "motors",
+      "unit_cost": 1850,
+      "qty_per_unit": 1,
+      "lead_time_days": 40,
+      "safety_stock_days": 1,
+      "inventory_days": 0,
+      "criticality": 0.8,
+      "single_source": true
+    }
+  ],
+  "tasks": [
+    {
+      "ref": "spec",
+      "code": "H7-01",
+      "name": "Customer duty specification",
+      "phase": "Requirements",
+      "duration_days": 10,
+      "resources": {
+        "DES": 1
+      },
+      "cost": 22000
+    },
+    {
+      "ref": "hyd",
+      "code": "H7-02",
+      "name": "Hydraulic design & CFD",
+      "phase": "Design",
+      "duration_days": 18,
+      "resources": {
+        "DES": 1
+      },
+      "cost": 58000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 24
+    },
+    {
+      "ref": "mec",
+      "code": "H7-03",
+      "name": "Mechanical & casting design",
+      "phase": "Design",
+      "duration_days": 16,
+      "resources": {
+        "DES": 1
+      },
+      "cost": 48000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 16,
+      "duration_max": 22
+    },
+    {
+      "ref": "rel",
+      "code": "H7-04",
+      "name": "Design release gate",
+      "phase": "Design",
+      "duration_days": 4,
+      "resources": {
+        "DES": 1
+      },
+      "cost": 10000,
+      "is_gate": true
+    },
+    {
+      "ref": "pattern",
+      "code": "H7-05",
+      "name": "Pattern & tooling fabrication",
+      "phase": "Tooling",
+      "duration_days": 28,
+      "resources": {
+        "FOUNDRY": 1
+      },
+      "cost": 96000,
+      "distribution": "triangular",
+      "duration_min": 24,
+      "duration_mode": 28,
+      "duration_max": 40
+    },
+    {
+      "ref": "cast",
+      "code": "H7-06",
+      "name": "First article castings",
+      "phase": "Procurement",
+      "duration_days": 30,
+      "resources": {
+        "FOUNDRY": 0.5
+      },
+      "cost": 54000,
+      "distribution": "triangular",
+      "duration_min": 25,
+      "duration_mode": 30,
+      "duration_max": 45,
+      "materials": [
+        "body"
+      ]
+    },
+    {
+      "ref": "mach",
+      "code": "H7-07",
+      "name": "CNC machining trials",
+      "phase": "Tooling",
+      "duration_days": 18,
+      "resources": {
+        "MACH": 1
+      },
+      "cost": 42000,
+      "distribution": "triangular",
+      "duration_min": 15,
+      "duration_mode": 18,
+      "duration_max": 26,
+      "materials": [
+        "body"
+      ]
+    },
+    {
+      "ref": "proto",
+      "code": "H7-08",
+      "name": "Prototype assembly & hydro test",
+      "phase": "Prototyping",
+      "duration_days": 14,
+      "resources": {
+        "ASM": 1,
+        "TEST": 1
+      },
+      "cost": 68000,
+      "distribution": "triangular",
+      "duration_min": 12,
+      "duration_mode": 14,
+      "duration_max": 20,
+      "materials": [
+        "seal",
+        "motor"
+      ]
+    },
+    {
+      "ref": "perf",
+      "code": "H7-09",
+      "name": "Performance & NPSH validation",
+      "phase": "Validation",
+      "duration_days": 16,
+      "resources": {
+        "TEST": 1
+      },
+      "cost": 62000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 13,
+      "duration_mode": 16,
+      "duration_max": 22
+    },
+    {
+      "ref": "reltest",
+      "code": "H7-10",
+      "name": "Reliability run (500 h)",
+      "phase": "Validation",
+      "duration_days": 25,
+      "resources": {
+        "TEST": 1
+      },
+      "cost": 88000,
+      "is_gate": true,
+      "distribution": "triangular",
+      "duration_min": 22,
+      "duration_mode": 25,
+      "duration_max": 34
+    },
+    {
+      "ref": "pilot",
+      "code": "H7-11",
+      "name": "Pilot build (20 units)",
+      "phase": "Pilot Production",
+      "duration_days": 12,
+      "resources": {
+        "ASM": 1
+      },
+      "cost": 150000,
+      "distribution": "triangular",
+      "duration_min": 10,
+      "duration_mode": 12,
+      "duration_max": 16,
+      "materials": [
+        "body"
+      ]
+    },
+    {
+      "ref": "accept",
+      "code": "H7-12",
+      "name": "Customer witness & acceptance",
+      "phase": "Quality",
+      "duration_days": 6,
+      "resources": {
+        "DES": 0.5
+      },
+      "cost": 18000,
+      "is_gate": true
+    },
+    {
+      "ref": "sop",
+      "code": "H7-13",
+      "name": "Series production release",
+      "phase": "Launch",
+      "duration_days": 0,
+      "resources": {
+        "DES": 0
+      },
+      "cost": 0,
+      "is_milestone": true
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "spec",
+      "to": "hyd",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "spec",
+      "to": "mec",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "hyd",
+      "to": "rel",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "mec",
+      "to": "rel",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "rel",
+      "to": "pattern",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "rel",
+      "to": "cast",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pattern",
+      "to": "mach",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "cast",
+      "to": "mach",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "mach",
+      "to": "proto",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "proto",
+      "to": "perf",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "perf",
+      "to": "reltest",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "reltest",
+      "to": "pilot",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "pilot",
+      "to": "accept",
+      "type": "FS",
+      "lag_days": 0
+    },
+    {
+      "from": "accept",
+      "to": "sop",
+      "type": "FS",
+      "lag_days": 0
+    }
+  ],
+  "risks": [
+    {
+      "name": "Casting porosity rework",
+      "category": "quality",
+      "target_type": "task",
+      "target": "cast",
+      "probability": 0.2,
+      "impact_days": 20,
+      "impact_cost": 90000,
+      "distribution": "lognormal",
+      "correlation_group": "tooling",
+      "owner": "Foundry"
+    },
+    {
+      "name": "CNC capacity conflict with legacy line",
+      "category": "capacity",
+      "target_type": "resource",
+      "target": "MACH",
+      "probability": 0.18,
+      "impact_days": 12,
+      "impact_cost": 60000,
+      "distribution": "lognormal",
+      "correlation_group": "operations",
+      "owner": "Plant Manager"
+    },
+    {
+      "name": "Seal leakage in reliability run",
+      "category": "quality",
+      "target_type": "task",
+      "target": "reltest",
+      "probability": 0.15,
+      "impact_days": 15,
+      "impact_cost": 50000,
+      "distribution": "lognormal",
+      "correlation_group": "engineering",
+      "owner": "Reliability"
+    },
+    {
+      "name": "Motor supplier lead-time slip",
+      "category": "supplier",
+      "target_type": "supplier",
+      "target": "motors",
+      "probability": 0.1,
+      "impact_days": 18,
+      "impact_cost": 45000,
+      "distribution": "lognormal",
+      "correlation_group": "supply",
+      "owner": "Procurement"
+    }
+  ],
+  "validation_tests": [
+    {
+      "task": "perf",
+      "name": "Performance validation",
+      "test_type": "DVT",
+      "failure_probability": 0.15,
+      "retest_days": 10,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    },
+    {
+      "task": "reltest",
+      "name": "500-hour reliability",
+      "test_type": "qualification",
+      "failure_probability": 0.18,
+      "retest_days": 14,
+      "is_gate": true,
+      "correlation_group": "engineering"
+    }
+  ],
+  "ecos": [
+    {
+      "code": "ECO-T1",
+      "title": "Impeller vane angle revision",
+      "status": "pending",
+      "probability": 0.28,
+      "rework_days": 9,
+      "impact_tasks": [
+        "hyd",
+        "pattern"
+      ],
+      "cost": 14000,
+      "description": "Efficiency improvement from CFD results."
+    }
+  ],
+  "milestones": [
+    {
+      "name": "Performance acceptance",
+      "task": "perf",
+      "due_date": "2026-09-16",
+      "customer_commitment": true,
+      "weight": 1.2
+    },
+    {
+      "name": "Reliability sign-off",
+      "task": "reltest",
+      "due_date": "2026-10-20",
+      "customer_commitment": true,
+      "weight": 1.2
+    },
+    {
+      "name": "Series production release",
+      "task": "sop",
+      "due_date": "2026-10-28",
+      "customer_commitment": true,
+      "weight": 2.0
+    }
+  ],
+  "quotes": [
+    {
+      "supplier": "castings2",
+      "component": "body",
+      "unit_cost": 504,
+      "lead_time_days": 60,
+      "moq": 50,
+      "qualified": true,
+      "notes": "European alternate casting source; +20% cost, +12 days lead time."
+    }
+  ],
+  "purchase_orders": [],
+  "inventory": [],
+  "actual_events": []
+}
