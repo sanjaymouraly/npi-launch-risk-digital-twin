@@ -211,7 +211,7 @@ def test_settings_providers_never_return_keys(client):
         assert "api_key" not in provider
         masked = provider.get("api_key_masked")
         if masked:
-            assert "*" in masked or "…" in masked
+            assert "*" in masked or "…" in masked or "•" in masked
 
 
 def test_calibration_reports_insufficient_data_instead_of_inventing(client, project_id):

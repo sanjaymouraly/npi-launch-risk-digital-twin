@@ -1,5 +1,7 @@
 # NPI Launch Risk Digital Twin & Decision Intelligence
 
+[![CI](https://github.com/sanjaymouraly/npi-launch-risk-digital-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/sanjaymouraly/npi-launch-risk-digital-twin/actions/workflows/ci.yml)
+
 An NPI launch-risk digital twin for scenario analysis and decision intelligence.
 
 ## Features
